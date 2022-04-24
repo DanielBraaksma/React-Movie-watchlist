@@ -15,7 +15,9 @@ nav {
     margin: 0;
     padding: 2em;
     height: 150px;
-    background: #202020;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/public/images/eric-terrade-hCDI6sPTjRY-unsplash.jpg);
+    background-size: cover;
+    background-color: #202020;
     color: #ffffff;
     display: flex;
     align-items: center;
