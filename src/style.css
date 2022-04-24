@@ -12,6 +12,8 @@ body {
     height: 100vh;
 }
 
+/********** Navbar *************/
+
 nav {
     margin: 0;
     padding: 2em;
@@ -23,6 +25,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
 
 }
 
@@ -32,17 +35,85 @@ h1 {
 
 h3 {
     font-size: 1rem;
+    border: 2px solid grey;
+    padding: .5em;
+    border-radius: 25px;
+    text-align: center;
+}
+
+h3:hover {
+    cursor: pointer;
+}
+
+/********* Dark mode ************/
+
+.toggler {
+    position: absolute;
+    top: 10px;
+    right: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.toggler p {
+    font-size: 0.625rem;
+    font-weight: 600;
+}
+
+.toggler--slider {
+    width: 25px;
+    height: 13px;
+    background-color: #2B283A;
+    border-radius: 2rem;
+    margin-inline: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+    box-sizing: content-box;
+}
+
+.toggler--slider--circle {
+    height: 13px;
+    width: 13px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+nav.dark .toggler--slider {
+    justify-content: flex-end;
+}
+
+.dark {
+    color: #ffffff;
+    background-color: #202020;
 }
 
 
+
 form {
-   text-align: center;
-   margin-top: -1em;
+   width: 40%;
+   min-width: 275px;
+    max-width: 500px;
+   margin: 0 auto;
+   border: 1px solid #202020;
+   border-radius: 5px;
+   margin-top: -3em;
 }
 
 input[type=text] {
     padding: .5em;
-    width: 40%;
-    min-width: 275px;
-    max-width: 500px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*************Search page ************/
+
+.search-container {
+    min-height: 100vh;
+    margin: 0;
+    padding: 2em;
+    z-index: -1;
 }
