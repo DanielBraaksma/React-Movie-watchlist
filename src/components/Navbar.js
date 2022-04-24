@@ -12,7 +12,7 @@ export default function Navbar(props) {
                 <div className="toggler--slider"
                     onClick={props.toggleDarkMode}
                 >
-                    <div className="toggler--slider--circle" onClick={props.toggleDarkMode}></div>
+                    <div className="toggler--slider--circle" ></div>
                 </div>
                 <p className="toggler--dark">Dark</p>
             </div>

@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import React from "react"
 import Search from "./components/Search";
+import Watch from "./components/Watch";
 
 export default function App () {
     const [searching, setSearching] = React.useState(true);
@@ -24,10 +25,12 @@ export default function App () {
                 searching={searching}
                 handleClick={handleNavigation}
             />
-            <Search
+            {searching && <Search
               darkMode={darkMode}
-            />
-
+            />}
+            {!searching && <Watch
+                darkMode={darkMode}
+                />}
         </div>
     )
 }
