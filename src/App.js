@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar"
 import React from "react"
+import Search from "./components/Search";
 
 export default function App () {
     const [searching, setSearching] = React.useState(true);
@@ -15,6 +16,8 @@ export default function App () {
                 searching={searching}
                 handleClick={handleNavigation}
             />
+            <Search />
+            
         </div>
     )
 }
