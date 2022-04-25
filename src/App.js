@@ -24,12 +24,13 @@ export default function App() {
     function handleSearch(event) {
         event.preventDefault();
         let searchTerm = event.target;
+        console.log(searchTerm.value)
         fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${searchTerm.value}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
             })
-
+            .catch(console.error())
         }
 
     function toggleDarkMode() {
@@ -51,7 +52,7 @@ export default function App() {
                 />
                 {searching && <Search
                     darkMode={darkMode}
-                    handleChange={handleSearch}
+                    handleSearch={handleSearch}
                 />}
                 {!searching && <Watch
                     darkMode={darkMode}
