@@ -6,11 +6,11 @@ export default function Search (props){
         <div>
 
             <div className={`search-container ${props.darkMode ? "dark" : ""}`}>
-            <form>
+            <form  onSubmit={props.handleChange}>
                 <input
                 type="text"
                 placeholder="Search for a movie"
-                // onChange={handleChange}
+
                 />
             </form>
                 <p>Test</p>
