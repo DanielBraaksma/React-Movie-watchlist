@@ -23,9 +23,9 @@ export default function App() {
 
     function handleSearch(event) {
         event.preventDefault();
+        let search = event.target.searchTerm
         let searchTerm = event.target;
-        console.log(searchTerm.value)
-        fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${searchTerm.value}`)
+        fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${search.value}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

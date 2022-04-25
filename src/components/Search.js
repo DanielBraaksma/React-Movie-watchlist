@@ -2,14 +2,19 @@ import React from "react"
 
 export default function Search (props){
     const [formData, setFormData] = React.useState(
-        {searchTerm: ""}
-    )
+        {
+            searchTerm: "",
 
-    function handleChange(event) {
-        setFormData(prevFormData=>({...prevFormData, [event.target.name]: event.target.value}))
-    }
+        })
+
+        function handleChange(event) {
+            setFormData({
+                searchTerm: event.target.value
+              });
+            }
 
 
+    //limit api requests by using onSubmit, don't overtax api.
     return (
         <div>
 
