@@ -1,4 +1,5 @@
 import React from "react"
+import Movie from "./Movie";
 
 export default function Search (props){
     const [formData, setFormData] = React.useState(
@@ -13,6 +14,9 @@ export default function Search (props){
               });
             }
 
+    const searchElements = props.searchResults.length ? props.searchResults.map(res=>{
+        return <Movie data={res} />
+    }) : <p>no results</p>
 
     //limit api requests by using onSubmit, don't overtax api.
     return (
@@ -29,10 +33,8 @@ export default function Search (props){
 
                 />
             </form>
-                <p>Test</p>
-
+            {searchElements}
             </div>
-
         </div>
     )
 }

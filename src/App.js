@@ -19,16 +19,20 @@ export default function App() {
     React.useEffect(() => {
         localStorage.setItem("darkMode", JSON.stringify(darkMode))
         localStorage.setItem("watchlist", JSON.stringify(watchlist))
-    }, [darkMode, watchlist])
+        localStorage.setItem("searchResults", JSON.stringify(searchResults))
+
+    }, [darkMode, watchlist, searchResults])
 
     function handleSearch(event) {
         event.preventDefault();
         let search = event.target.searchTerm
-        let searchTerm = event.target;
-        fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${search.value}`)
+        let searchArray;
+
+        fetch(`http://www.omdbapi.com/?apikey=ad56d582&s=${search.value}`)
+        // fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${search.value}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                setSearchResults(data.Search);
             })
             .catch(console.error())
         }
@@ -42,6 +46,7 @@ export default function App() {
                 }
 
 
+
     return (
             <div className="main-container">
                 <Navbar
@@ -51,12 +56,14 @@ export default function App() {
                     handleClick={handleNavigation}
                 />
                 {searching && <Search
+                    searchResults={searchResults}
                     darkMode={darkMode}
                     handleSearch={handleSearch}
                 />}
                 {!searching && <Watch
                     darkMode={darkMode}
                 />}
+
             </div>
         )
     }
