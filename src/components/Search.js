@@ -21,7 +21,6 @@ export default function Search (props){
     //limit api requests by using onSubmit, don't overtax api.
     return (
         <div>
-
             <div className={`search-container ${props.darkMode ? "dark" : ""}`}>
             <form  onSubmit={props.handleSearch}>
                 <input
