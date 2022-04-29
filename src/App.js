@@ -23,20 +23,18 @@ export default function App() {
 
     }, [darkMode, watchlist, searchResults])
 
-    function handleSearch(event) {
+    async function handleSearch(event) {
         event.preventDefault();
-        let search = event.target.searchTerm
-        let searchArray;
-
-        fetch(`http://www.omdbapi.com/?apikey=ad56d582&s=${search.value}`)
-        // fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${search.value}`)
-            .then(res => res.json())
-            .then(data => {
-                setSearchResults(data.Search);
-            })
-            .catch(console.error())
+        const search = event.target.searchTerm
+        const res1 = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${search.value}`)
+        const data =  await res1.json()
+        const newSearchArray = data.Search.map(movie=>{return movie.Title})
+        setSearchResults(newSearchArray)
+        // console.log(test)
         }
-tesssstest
+
+        console.log(searchResults)
+
     function toggleDarkMode() {
                     setDarkMode(prevMode => !prevMode)
                 }
