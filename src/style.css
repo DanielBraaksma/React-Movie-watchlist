@@ -130,6 +130,52 @@ input[type=text] {
     margin-right: 1em;
 }
 
+.movie-info {
+    max-width: 500px;
+}
+
+.star {
+    height: 1em;
+    margin-right: .5em;
+    margin-bottom: -2px;
+}
+.movie-title {
+    display: inline;
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+.rating-container {
+    font-weight: bold;
+}
+
+.subtitle {
+    display:flex;
+}
+
+.subtitle > p {
+    margin-right: 2em;
+}
+
+.addBtn {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+
+}
+
+.addBtn img {
+    height: 15px;
+    margin-right: .5em;
+    
+
+
+}
 /*************Watchlist page ************/
 .watch-container {
     min-height: 100vh;
