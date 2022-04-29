@@ -15,7 +15,7 @@ export default function Search (props){
             }
 
     const searchElements = props.searchResults.length ? props.searchResults.map(res=>{
-        return <Movie data={res} />
+        return <Movie data={res} darkMode={props.darkMode} addToWatchlist={props.addToWatchlist}/>
     }) : <p>no results</p>
 
     //limit api requests by using onSubmit, don't overtax api.

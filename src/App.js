@@ -35,6 +35,10 @@ export default function App() {
 
         console.log(searchResults)
 
+    function addToWatchlist (event) {
+        console.log(event.target.parentElement.parentElement.parentElement)
+    }
+
     function toggleDarkMode() {
                     setDarkMode(prevMode => !prevMode)
                 }
@@ -57,6 +61,7 @@ export default function App() {
                     searchResults={searchResults}
                     darkMode={darkMode}
                     handleSearch={handleSearch}
+                    addToWatchlist={addToWatchlist}
                 />}
                 {!searching && <Watch
                     darkMode={darkMode}

@@ -15,7 +15,7 @@ export default function Movie(props) {
 
     }, [props])
 
-    console.log(movieData)
+    console.log(props)
     return (
         <div className="movie-card">
             <img className="movie-img" src={movieData.Poster} />
@@ -25,7 +25,7 @@ export default function Movie(props) {
 
                 <div className="subtitle">
                     <p>{movieData.Year}</p><p>{movieData.Genre}</p>
-                    <button className="addBtn"><img src={Addicon} />ADD</button>
+                    <button onClick={props.addToWatchlist} className="addBtn"><img src={Addicon} />ADD</button>
                 </div>
                 <p>{movieData.Plot}</p>
             </div>
