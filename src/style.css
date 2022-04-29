@@ -18,7 +18,7 @@ nav {
     margin: 0;
     padding: 2em;
     height: 150px;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/public/images/eric-terrade-hCDI6sPTjRY-unsplash.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(images/eric-terrade-hCDI6sPTjRY-unsplash.jpg);
     background-size: cover;
     background-color: #202020;
     color: #ffffff;
@@ -116,6 +116,18 @@ input[type=text] {
     margin: 0;
     padding: 2em;
     z-index: -1;
+}
+
+
+.movie-card {
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.movie-img {
+    height: 300px;
+    width: 200px;
+    margin-right: 1em;
 }
 
 /*************Watchlist page ************/
