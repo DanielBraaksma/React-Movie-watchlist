@@ -2,6 +2,8 @@ import Navbar from "./components/Navbar"
 import React from "react"
 import Search from "./components/Search";
 import Watch from "./components/Watch";
+import Staricon from "./images/staricon.png"
+import Removeicon from "./images/minusicon.png"
 
 export default function App() {
     const [searching, setSearching] = React.useState(true);
@@ -35,9 +37,29 @@ export default function App() {
 
         console.log(searchResults)
 
-    function addToWatchlist (event) {
-        console.log(event.target.parentElement.parentElement.parentElement)
-    }
+    function addToWatchlist (movieData) {
+        let newNote = <div className="movie-card">
+        <img className="movie-img" src={movieData.Poster} />
+        <div className="movie-info">
+            <h2 className="movie-title">{movieData.Title}</h2>
+            <span className="rating-container"><img src={Staricon} className="star" />{movieData.imdbRating}</span>
+
+            <div className="subtitle">
+                <p>{movieData.Year}</p><p>{movieData.Genre}</p>
+                <button onClick={removeFromWatchlist} className="removeBtn"><img src={Removeicon} />Remove</button>
+            </div>
+            <p>{movieData.Plot}</p>
+        </div>
+    </div>
+
+        setWatchlist(prevWatchList=>[...prevWatchList, newNote])
+}
+
+function removeFromWatchlist (){
+    console.log("remove an item")
+}
+
+console.log(watchlist)
 
     function toggleDarkMode() {
                     setDarkMode(prevMode => !prevMode)
@@ -65,6 +87,7 @@ export default function App() {
                 />}
                 {!searching && <Watch
                     darkMode={darkMode}
+                    watchlist={watchlist}
                 />}
 
             </div>

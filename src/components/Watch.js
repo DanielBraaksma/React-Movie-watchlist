@@ -3,7 +3,7 @@ export default function Watch (props) {
         <div>
 
             <div className={`watch-container ${props.darkMode ? "dark" : ""}`}>
-                <p>Test</p>
+                {props.watchlist}
 
             </div>
 
