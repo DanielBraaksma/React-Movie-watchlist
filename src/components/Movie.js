@@ -5,7 +5,7 @@ import Addiconwhite from "../images/addiconwhite.png"
 
 export default function Movie(props) {
     const [movieData, setMovieData] = React.useState([])
-    const [disable, setDisable] = React.useState(false);
+    const [inWatchlist, setInWatchlist] = React.useState(false);
 
     let addIcon = props.darkMode? Addiconwhite : Addiconblack;
 
@@ -13,9 +13,31 @@ export default function Movie(props) {
         fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&t=${props.data}`)
             .then(res => res.json())
             .then(data => setMovieData(data))
+    }, [props.data])
 
 
-    }, [props])
+    let foundInWatchlist;
+
+    for (let movie of props.watchlist){
+        console.log(movie.Title)
+        console.log( movieData)
+        if (movie.Title === movieData.Title){
+           foundInWatchlist = true;
+        }
+    }
+
+
+
+
+    // React.useEffect(() => {
+    //             for (let movie of props.watchlist){
+    //                 if (movie.Poster === movieData.Poster){
+    //                     setInWatchlist(true)
+    //                 }
+    //             }
+
+
+    // }, [props.watchlist])
 
     return (
         <div className="movie-card">
@@ -26,8 +48,7 @@ export default function Movie(props) {
 
                 <div className="subtitle">
                     <p>{movieData.Year}</p><p>{movieData.Genre}</p>
-                    <button disabled={disable} onClick={(e)=>{setDisable(true); props.addToWatchlist(e, movieData)}} className="addBtn">
-                        <img src={addIcon} />ADD</button>
+                    {!foundInWatchlist && <button onClick={()=> props.addToWatchlist(movieData)} className="addBtn"><img src={addIcon} />ADD</button>}
                 </div>
                 <p>{movieData.Plot}</p>
             </div>

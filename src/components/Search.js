@@ -15,9 +15,12 @@ export default function Search (props){
               });
             }
 
+
     const searchElements = props.searchResults.length ? props.searchResults.map(res=>{
-        return <Movie data={res} darkMode={props.darkMode} addToWatchlist={props.addToWatchlist}/>
+        return <Movie data={res} darkMode={props.darkMode} addToWatchlist={props.addToWatchlist} watchlist={props.watchlist}/>
     }) :
+
+
     <div className="placeholder-container">
         <p className="placeholder-text">Begin searching for a movie to add</p>
         <img className="placeholder-img" src={Filmicon} />

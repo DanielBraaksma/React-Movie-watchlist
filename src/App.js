@@ -6,7 +6,9 @@ import Watch from "./components/Watch";
 
 export default function App() {
     const [searching, setSearching] = React.useState(true);
-    const [searchResults, setSearchResults] = React.useState([])
+    const [searchResults, setSearchResults] = React.useState(
+        () => JSON.parse(localStorage.getItem("searchResults")) || []
+    )
     const [darkMode, setDarkMode] = React.useState( //Lazily initialize state & check if local storage darkmode exists
         () => JSON.parse(localStorage.getItem("darkMode") || false)
     )
@@ -36,7 +38,7 @@ export default function App() {
 
         console.log(searchResults)
 
-    function addToWatchlist (e, movieData) {
+    function addToWatchlist (movieData) {
         // let test = e.target.parentElement.disabled
         // console.log(this)
         // e.target.parentElement.disabled = true;
@@ -86,6 +88,8 @@ console.log(watchlist)
                     darkMode={darkMode}
                     handleSearch={handleSearch}
                     addToWatchlist={addToWatchlist}
+                    watchlist={watchlist}
+
                 />}
                 {!searching && <Watch
                     darkMode={darkMode}
