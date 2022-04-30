@@ -1,12 +1,13 @@
 import Staricon from "../images/staricon.png"
 import Removeiconblack from "../images/minusiconblack.png"
 import Removeiconwhite from "../images/minusiconwhite.png"
+import Filmicon from  "../images/filmicon.png"
 
 export default function Watch (props) {
 
     let removeIcon = props.darkMode? Removeiconwhite : Removeiconblack;
 
-    const watchlistElements = props.watchlist.map(movie=>{
+    const watchlistElements = props.watchlist.length ? props.watchlist.map(movie=>{
         return (
             <div className="movie-card">
                 <img className="movie-img" src={movie.Poster} />
@@ -22,7 +23,11 @@ export default function Watch (props) {
                 </div>
             </div>
         )
-    })
+    }) :
+    <div className="placeholder-container">
+        <p className="placeholder-text">Nothing found, click "Find Your Film"</p>
+        <img className="placeholder-img" src={Filmicon} />
+    </div>
 
     return (
         <div>
