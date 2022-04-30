@@ -5,6 +5,7 @@ import Addiconwhite from "../images/addiconwhite.png"
 
 export default function Movie(props) {
     const [movieData, setMovieData] = React.useState([])
+    const [disable, setDisable] = React.useState(false);
 
     let addIcon = props.darkMode? Addiconwhite : Addiconblack;
 
@@ -25,7 +26,8 @@ export default function Movie(props) {
 
                 <div className="subtitle">
                     <p>{movieData.Year}</p><p>{movieData.Genre}</p>
-                    <button onClick={()=>props.addToWatchlist(movieData)} className="addBtn"><img src={addIcon} />ADD</button>
+                    <button disabled={disable} onClick={(e)=>{setDisable(true); props.addToWatchlist(e, movieData)}} className="addBtn">
+                        <img src={addIcon} />ADD</button>
                 </div>
                 <p>{movieData.Plot}</p>
             </div>

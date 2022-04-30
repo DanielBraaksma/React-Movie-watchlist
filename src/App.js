@@ -36,7 +36,10 @@ export default function App() {
 
         console.log(searchResults)
 
-    function addToWatchlist (movieData) {
+    function addToWatchlist (e, movieData) {
+        // let test = e.target.parentElement.disabled
+        // console.log(this)
+        // e.target.parentElement.disabled = true;
         let newMovie = {
                 Poster: movieData.Poster,
                 Title: movieData.Title,
