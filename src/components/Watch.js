@@ -1,7 +1,10 @@
 import Staricon from "../images/staricon.png"
-import Removeicon from "../images/minusicon.png"
+import Removeiconblack from "../images/minusiconblack.png"
+import Removeiconwhite from "../images/minusiconwhite.png"
 
 export default function Watch (props) {
+
+    let removeIcon = props.darkMode? Removeiconwhite : Removeiconblack;
 
     const watchlistElements = props.watchlist.map(movie=>{
         return (
@@ -13,7 +16,7 @@ export default function Watch (props) {
 
                     <div className="subtitle">
                         <p>{movie.Year}</p><p>{movie.Genre}</p>
-                        <button onClick={()=>movie.removeFromWatchlist(movie.Title)} className="removeBtn"><img src={Removeicon} />Remove</button>
+                        <button onClick={()=>props.removeFromWatchlist(movie.Id)} className="removeBtn"><img src={removeIcon} />Remove</button>
                     </div>
                     <p>{movie.Plot}</p>
                 </div>

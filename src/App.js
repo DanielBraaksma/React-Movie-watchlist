@@ -44,15 +44,18 @@ export default function App() {
                 Year: movieData.Year,
                 Genre: movieData.Genre,
                 Plot:movieData.Plot,
-                removeFromWatchlist: removeFromWatchlist
+                Id: movieData.imdbID,
             }
 
 
         setWatchlist(prevWatchList=>[...prevWatchList, newMovie])
 }
 
-function removeFromWatchlist (){
-    console.log("remove an item")
+function removeFromWatchlist (id){
+    console.log(id)
+    setWatchlist(prevWatchList=>prevWatchList.filter(movie=>{
+        return movie.Id !== id;
+    }))
 }
 
 console.log(watchlist)
@@ -84,6 +87,7 @@ console.log(watchlist)
                 {!searching && <Watch
                     darkMode={darkMode}
                     watchlist={watchlist}
+                    removeFromWatchlist={removeFromWatchlist}
                 />}
 
             </div>

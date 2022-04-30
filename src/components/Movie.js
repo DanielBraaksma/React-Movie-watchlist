@@ -1,11 +1,12 @@
 import React from "react"
 import Staricon from "../images/staricon.png"
-import Addicon from "../images/testicon.png"
+import Addiconblack from "../images/addiconblack.png"
+import Addiconwhite from "../images/addiconwhite.png"
 
 export default function Movie(props) {
     const [movieData, setMovieData] = React.useState([])
 
-
+    let addIcon = props.darkMode? Addiconwhite : Addiconblack;
 
     React.useEffect(() => {
         fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&t=${props.data}`)
@@ -24,7 +25,7 @@ export default function Movie(props) {
 
                 <div className="subtitle">
                     <p>{movieData.Year}</p><p>{movieData.Genre}</p>
-                    <button onClick={()=>props.addToWatchlist(movieData)} className="addBtn"><img src={Addicon} />ADD</button>
+                    <button onClick={()=>props.addToWatchlist(movieData)} className="addBtn"><img src={addIcon} />ADD</button>
                 </div>
                 <p>{movieData.Plot}</p>
             </div>

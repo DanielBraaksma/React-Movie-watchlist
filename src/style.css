@@ -113,6 +113,7 @@ input[type=text] {
 
 /*************Search page ************/
 
+.watch-container,
 .search-container {
     min-height: 100vh;
     margin: 0;
@@ -172,11 +173,12 @@ input[type=text] {
     margin-left: auto;
     background-color: inherit;
     border: none;
-    color: inherit;
+    color: grey;
     cursor: pointer;
 
 }
 
+.removeBtn img,
 .addBtn img {
     height: 15px;
     margin-right: .5em;
