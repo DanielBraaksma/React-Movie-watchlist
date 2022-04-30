@@ -2,8 +2,7 @@ import Navbar from "./components/Navbar"
 import React from "react"
 import Search from "./components/Search";
 import Watch from "./components/Watch";
-import Staricon from "./images/staricon.png"
-import Removeicon from "./images/minusicon.png"
+
 
 export default function App() {
     const [searching, setSearching] = React.useState(true);
@@ -38,21 +37,18 @@ export default function App() {
         console.log(searchResults)
 
     function addToWatchlist (movieData) {
-        let newNote = <div className="movie-card">
-        <img className="movie-img" src={movieData.Poster} />
-        <div className="movie-info">
-            <h2 className="movie-title">{movieData.Title}</h2>
-            <span className="rating-container"><img src={Staricon} className="star" />{movieData.imdbRating}</span>
+        let newMovie = {
+                Poster: movieData.Poster,
+                Title: movieData.Title,
+                Rating: movieData.imdbRating,
+                Year: movieData.Year,
+                Genre: movieData.Genre,
+                Plot:movieData.Plot,
+                removeFromWatchlist: removeFromWatchlist
+            }
 
-            <div className="subtitle">
-                <p>{movieData.Year}</p><p>{movieData.Genre}</p>
-                <button onClick={removeFromWatchlist} className="removeBtn"><img src={Removeicon} />Remove</button>
-            </div>
-            <p>{movieData.Plot}</p>
-        </div>
-    </div>
 
-        setWatchlist(prevWatchList=>[...prevWatchList, newNote])
+        setWatchlist(prevWatchList=>[...prevWatchList, newMovie])
 }
 
 function removeFromWatchlist (){
