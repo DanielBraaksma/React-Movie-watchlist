@@ -39,9 +39,6 @@ export default function App() {
         console.log(searchResults)
 
     function addToWatchlist (movieData) {
-        // let test = e.target.parentElement.disabled
-        // console.log(this)
-        // e.target.parentElement.disabled = true;
         let newMovie = {
                 Poster: movieData.Poster,
                 Title: movieData.Title,
@@ -62,8 +59,6 @@ function removeFromWatchlist (id){
         return movie.Id !== id;
     }))
 }
-
-console.log(watchlist)
 
     function toggleDarkMode() {
                     setDarkMode(prevMode => !prevMode)

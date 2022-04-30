@@ -17,30 +17,15 @@ export default function Movie(props) {
 
 
     let foundInWatchlist;
-
+    //check every time if the current Movie component getting rendered is already in the watchlist
     for (let movie of props.watchlist){
-        console.log(movie.Title)
-        console.log( movieData)
         if (movie.Title === movieData.Title){
            foundInWatchlist = true;
         }
     }
 
-
-
-
-    // React.useEffect(() => {
-    //             for (let movie of props.watchlist){
-    //                 if (movie.Poster === movieData.Poster){
-    //                     setInWatchlist(true)
-    //                 }
-    //             }
-
-
-    // }, [props.watchlist])
-
     return (
-        <div className="movie-card">
+        <div className="movie-card fade-in">
             <img className="movie-img" src={movieData.Poster} />
             <div className="movie-info">
                 <h2 className="movie-title">{movieData.Title}</h2>

@@ -9,7 +9,7 @@ export default function Watch (props) {
 
     const watchlistElements = props.watchlist.length ? props.watchlist.map(movie=>{
         return (
-            <div className="movie-card">
+            <div className="movie-card fade-in">
                 <img className="movie-img" src={movie.Poster} />
                 <div className="movie-info">
                     <h2 className="movie-title">{movie.Title}</h2>
