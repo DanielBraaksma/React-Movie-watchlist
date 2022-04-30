@@ -164,6 +164,7 @@ input[type=text] {
     margin-right: 2em;
 }
 
+.removeBtn,
 .addBtn {
     width: 100px;
     display: flex;
