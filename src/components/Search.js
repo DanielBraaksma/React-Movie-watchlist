@@ -22,7 +22,7 @@ export default function Search (props){
 
 
     <div className="placeholder-container">
-        <p className="placeholder-text">Begin searching for a movie to add</p>
+        <p className="placeholder-text">{props.noResults ? props.noResults : "Begin searching for a movie to add"}</p>
         <img className="placeholder-img" src={Filmicon} />
     </div>
 

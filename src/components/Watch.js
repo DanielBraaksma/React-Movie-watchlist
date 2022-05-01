@@ -25,7 +25,7 @@ export default function Watch (props) {
         )
     }) :
     <div className="placeholder-container">
-        <p className="placeholder-text">Nothing found, click "Find Your Film"</p>
+        <p className="placeholder-text">No movies saved, click "Find Your Film"</p>
         <img className="placeholder-img" src={Filmicon} />
     </div>
 

@@ -6,6 +6,7 @@ import Watch from "./components/Watch";
 
 export default function App() {
     const [searching, setSearching] = React.useState(true);
+    const [noResults, setNoResults] = React.useState("")
     const [searchResults, setSearchResults] = React.useState(
         () => JSON.parse(localStorage.getItem("searchResults")) || []
     )
@@ -31,9 +32,14 @@ export default function App() {
         const search = event.target.searchTerm
         const res1 = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=ad56d582&s=${search.value}`)
         const data =  await res1.json()
+        if (data.Error) {
+            setSearchResults([])
+            setNoResults(data.Error)
+        }
+        else {
         const newSearchArray = data.Search.map(movie=>{return movie.Title})
         setSearchResults(newSearchArray)
-        // console.log(test)
+            }
         }
 
         console.log(searchResults)
@@ -78,8 +84,9 @@ function removeFromWatchlist (id){
                     searching={searching}
                     handleClick={handleNavigation}
                 />
-                {searching && <Search
+                { searching && <Search
                     searchResults={searchResults}
+                    noResults={noResults}
                     darkMode={darkMode}
                     handleSearch={handleSearch}
                     addToWatchlist={addToWatchlist}
