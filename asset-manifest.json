@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/React-Movie-watchlist/static/css/main.fbe0791e.css",
+    "main.js": "/React-Movie-watchlist/static/js/main.abdc5255.js",
+    "static/media/eric-terrade-hCDI6sPTjRY-unsplash.jpg": "/React-Movie-watchlist/static/media/eric-terrade-hCDI6sPTjRY-unsplash.812fd151fdf1630b37de.jpg",
+    "index.html": "/React-Movie-watchlist/index.html",
+    "main.fbe0791e.css.map": "/React-Movie-watchlist/static/css/main.fbe0791e.css.map",
+    "main.abdc5255.js.map": "/React-Movie-watchlist/static/js/main.abdc5255.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fbe0791e.css",
+    "static/js/main.abdc5255.js"
+  ]
+}
